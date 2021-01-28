@@ -3,3 +3,6 @@
 instalar a dependencia live-server para poder acompanhar em 
 tempo real as alterações feitas nos arquivos ts
 (npm i -s live-server) => apenas no projeto para salvar no package-json
+
+tsc -W => inicia o monitoramento do codigo para alterações e atualizar sozinho
+npm start => inicar o live-server
