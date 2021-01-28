@@ -1,0 +1,5 @@
+(npm init -y) => para iniciar o projeto node
+
+instalar a dependencia live-server para poder acompanhar em 
+tempo real as alterações feitas nos arquivos ts
+(npm i -s live-server) => apenas no projeto para salvar no package-json
