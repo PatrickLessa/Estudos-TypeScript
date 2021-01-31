@@ -194,3 +194,65 @@ const produto = {
 }
 
 produto.validarProduto()
+
+// tipos nulos
+
+let altura = 12
+// altura = null
+// por padrão, o TS nao permite que vc atribua valores nulos a variaveis
+// ja iniciadas. Para que possamos fazer isso podemos usar o Unio Type ou 
+// mexer no arwuivo tsconfig para que o TS permita 
+
+let aluturaOpcional: null | number = 12
+aluturaOpcional = null
+
+type Contato = {
+    nome: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contato1: Contato = {
+    nome: 'Patrick',
+    tel1: '21896463',
+    tel2: null
+}
+
+console.log(contato1.nome)
+console.log(contato1.tel1)
+console.log(contato1.tel2)
+
+let podeSerNulo = null
+podeSerNulo = 12
+console.log(podeSerNulo)
+podeSerNulo = 'abc'
+console.log(podeSerNulo)
+
+// Desafio
+
+type ContaBancaria = {
+    saldo: number,
+    depositar: (valor: number) => void
+}
+
+type Correntisa = {
+    nome: string,
+    conta: ContaBancaria,
+    contatos: string[]
+}
+
+const contaBancaria: ContaBancaria = {
+    saldo: 3000,
+    depositar(valor: number) {
+        this.saldo += valor
+    }
+}
+
+const correntista: Correntisa = {
+    nome: 'Ana Silva',
+    conta: contaBancaria,
+    contatos: ['88558', '852258']
+}
+
+correntista.conta.depositar(5000)
+console.log(correntista)

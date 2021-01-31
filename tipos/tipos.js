@@ -152,3 +152,37 @@ var produto = {
     }
 };
 produto.validarProduto();
+// tipos nulos
+var altura = 12;
+// altura = null
+// por padrão, o TS nao permite que vc atribua valores nulos a variaveis
+// ja iniciadas. Para que possamos fazer isso podemos usar o Unio Type ou 
+// mexer no arwuivo tsconfig para que o TS permita 
+var aluturaOpcional = 12;
+aluturaOpcional = null;
+var contato1 = {
+    nome: 'Patrick',
+    tel1: '21896463',
+    tel2: null
+};
+console.log(contato1.nome);
+console.log(contato1.tel1);
+console.log(contato1.tel2);
+var podeSerNulo = null;
+podeSerNulo = 12;
+console.log(podeSerNulo);
+podeSerNulo = 'abc';
+console.log(podeSerNulo);
+var contaBancaria = {
+    saldo: 3000,
+    depositar: function (valor) {
+        this.saldo += valor;
+    }
+};
+var correntista = {
+    nome: 'Ana Silva',
+    conta: contaBancaria,
+    contatos: ['88558', '852258']
+};
+correntista.conta.depositar(5000);
+console.log(correntista);
