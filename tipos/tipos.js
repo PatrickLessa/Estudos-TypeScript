@@ -1,20 +1,20 @@
 "use strict";
 // string
-var nome = 'João';
+let nome = 'João';
 //nome = 27
 console.log(nome);
 // numbers
 // os numbers aceitam tanto valores inteiros quanto decimais
-var idade = 27;
+let idade = 27;
 //idade = 'Idade'
 idade = 27.5;
 console.log(idade);
 // boolean
-var possuiHobbies = true;
+let possuiHobbies = true;
 //possuiHobbies = 1
 console.log(possuiHobbies);
 // tipos explicitos (deixando as variaveis com tipo explicito)
-var minhaidade;
+let minhaidade;
 minhaidade = 27;
 console.log(minhaidade);
 //minhaidade = '27 anos'
@@ -22,7 +22,7 @@ console.log(minhaidade);
 // é possivel deixar esta variavel dinamica sem ter o erro
 // de tipagem
 // array
-var hobbies = ["Cozinhar", "tocar guitarra"];
+let hobbies = ["Cozinhar", "tocar guitarra"];
 console.log(hobbies[0]);
 console.log(typeof hobbies);
 hobbies = [100, 200, "string"];
@@ -30,7 +30,7 @@ hobbies = [100, 200, "string"];
 console.log(hobbies);
 // tupla => um array de tipos com qtd pré definida (em TS)
 // dentro dos "[]" se define a qtd e os tipos dos elementos dentro da tupla
-var endereco = ["Av principal", 99, ""];
+let endereco = ["Av principal", 99, ""];
 console.log(endereco);
 endereco = ["Rua secundaria", 1257, "Bloco C"];
 console.log(endereco);
@@ -46,13 +46,13 @@ var Cor;
 })(Cor || (Cor = {}));
 // conseguimos definir qual o valor numérico do enum atribuindo
 // á ele
-var minhaCor = Cor.Verde;
+let minhaCor = Cor.Verde;
 console.log(minhaCor);
 console.log(Cor.Azul);
 console.log(Cor.Laranja, Cor.Amarelo);
 console.log(Cor.Vermelho, Cor.Verde);
 // any => qualquer tipo
-var carro = "BMW";
+let carro = "BMW";
 console.log(carro);
 carro = { marca: "BMW", ano: 2019 };
 console.log(carro);
@@ -76,11 +76,11 @@ console.log(multiply(2, 4));
 // quando falamos que uma variavel é do tipo "função"
 // fazemos uma sintaxe parecida com arrow function
 // onde definimos a qtd de parametro e o retorno. Exemplo: 
-var calculo; // após a flecha, passamos o tipo de retorno
+let calculo; // após a flecha, passamos o tipo de retorno
 calculo = multiply;
 console.log(calculo(4, 7));
 // objetos
-var usuario = {
+let usuario = {
     nome: 'Jucão',
     idade: 27
 };
@@ -91,8 +91,8 @@ usuario = {
 };
 console.log(usuario);
 // definindo o tipo da var
-var funcionario;
-var funcionario2;
+let funcionario;
+let funcionario2;
 // atribuindo os valores
 funcionario = {
     supers: ["Alvaro", "Marjoel"],
@@ -120,13 +120,13 @@ console.log(funcionario.baterPonto(10));
 console.log(funcionario.baterPonto(8));
 // Union Types => onde podemos dizer que uma var pode receber tipos diferente
 // a sintaxe é usada com o pipe ("|"), como no exemplo
-var nota;
+let nota;
 nota = 10;
-console.log("Minha nota \u00E9 " + nota);
+console.log(`Minha nota é ${nota}`);
 nota = '10';
-console.log("Minha nota \u00E9 " + nota);
+console.log(`Minha nota é ${nota}`);
 // checando tipos
-var valor = 30;
+let valor = 30;
 // checagem manual
 if (typeof valor === "number") {
     console.log("é um number");
@@ -139,10 +139,10 @@ else {
 function falha(msg) {
     throw new Error(msg);
 }
-var produto = {
+const produto = {
     nome: 'Sabão',
     preco: 6,
-    validarProduto: function () {
+    validarProduto() {
         if (!this.nome || this.nome.trim().length == 0) {
             falha('precisa ter um nome');
         }
@@ -153,14 +153,14 @@ var produto = {
 };
 produto.validarProduto();
 // tipos nulos
-var altura = 12;
+let altura = 12;
 // altura = null
 // por padrão, o TS nao permite que vc atribua valores nulos a variaveis
 // ja iniciadas. Para que possamos fazer isso podemos usar o Unio Type ou 
 // mexer no arwuivo tsconfig para que o TS permita 
-var aluturaOpcional = 12;
+let aluturaOpcional = 12;
 aluturaOpcional = null;
-var contato1 = {
+const contato1 = {
     nome: 'Patrick',
     tel1: '21896463',
     tel2: null
@@ -168,21 +168,22 @@ var contato1 = {
 console.log(contato1.nome);
 console.log(contato1.tel1);
 console.log(contato1.tel2);
-var podeSerNulo = null;
+let podeSerNulo = null;
 podeSerNulo = 12;
 console.log(podeSerNulo);
 podeSerNulo = 'abc';
 console.log(podeSerNulo);
-var contaBancaria = {
+const contaBancaria = {
     saldo: 3000,
-    depositar: function (valor) {
+    depositar(valor) {
         this.saldo += valor;
     }
 };
-var correntista = {
+const correntista = {
     nome: 'Ana Silva',
     conta: contaBancaria,
     contatos: ['88558', '852258']
 };
 correntista.conta.depositar(5000);
 console.log(correntista);
+//# sourceMappingURL=tipos.js.map
