@@ -10,3 +10,27 @@ npm start => inicar o live-server
 
 sourceMap => gera um arquivo que podemos ter acesso aos arquivos TS dentro do 
             browser e fazer a depuração (debug) dele
+
+noImplicityAny => se o valor for falso, o compilador nao reclama
+                    ao nao colocar tipagem em alhuma variavel (o que 
+                    deixa por padrão a variavel com tipo "any")
+                    não é recomendado por o TS ser uma linguagem 
+                    tipada e tbm sempre bom deixar o codigo explicito para entendimento
+
+strictNullChecks => verifica o fluxo do codigo e diz se pode ou não retornar
+                    um valor nulo em determinado lugar/função. É importante
+                    usar esta flag no compilador para evitar futuros bugs
+                    na sua aplicação
+            
+noUnusedLocals => verifica se variaveis locais não estão sendo
+                    usadas em funções
+
+noUnusedParameters => verifica se parametros da função não estao sendo usadas 
+                        dentro do bloco de codigo da função
+
+outDir => especifica em qual diretorios vc quer que gere os arquivos compilados
+
+outFile => não compativel com commonsjs, mas com outros sistemas ele gera todos os arquivos
+            compilados em um unico arquivo
+
+commonsjs => é o sistema de módulos do node.js
