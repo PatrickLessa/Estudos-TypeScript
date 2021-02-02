@@ -116,3 +116,154 @@ const turmaB: string[] =
         ['Fernando', ...turmaA, 'Miguel', 'Lorena']
 
 console.log(turmaB)
+
+// agrupando argumentos/parametros com o spread
+// se formos usar o spread em parametro de funções, devemos
+// passar ele por ultimo, caso contrario irá gerar bugs
+function retornarArray(...args: number[]): number[]{
+    return args
+}
+
+const numeros = retornarArray(1, 2, 3, 5, 7)
+console.log(numeros)
+console.log(retornarArray(...numbers))
+
+// Reste & Spreas em Tuplas
+const tupla: [number, string, boolean] = [1, 'abc', false]
+
+function tuplaParam1(a: number, b: string, c: boolean): void {
+    console.log(`1) ${a} ${b} ${c}`)
+}
+
+tuplaParam1(...tupla);
+
+function tuplaParam2(...params: [number, string, boolean]): void {
+    console.log(Array.isArray(params))
+    console.log(`2) ${params[0]} ${params[1]} ${params[2]}`)
+}
+
+tuplaParam2(...tupla)
+
+// Destructuring => pegar dados de uma estrutura e 
+// expor estes dados de uma forma mais simples
+// Array
+const carac = ['Motor Zetec 1.8', 2020]
+
+// pegando os dados do array (manual)
+// const motor = carac[0]
+// const ano = carac[1]
+
+// pegando os dados do array usando Destructuring
+const [motor, ano] = carac
+console.log(motor, ano)
+
+// Destructuring (Objeto)
+const item = {
+    nome: 'SSD 480BG',
+    preco: 200.0,
+    carac: {
+        w: 'Importado'
+    }
+}
+
+const nomeItem = item.nome
+const preco = item.preco
+
+//Destructuring (usando Alias)
+const { nome: n, preco: p, carac: { w } } = item
+console.log(n, p, w)
+
+// Template String 
+const user: string = 'SuporteCod3r'
+const notify: string = '10'
+
+// const welcome = 'Welcome ' + user + ' Notify: ' + notify
+
+const welcome = `
+    Welcome ${user}
+    Notifys: ${parseInt(notify) > 9 ? '+9': notify}
+` 
+console.log(welcome)
+console.log(`${(1+1) *30}`)
+console.log(`
+    Motor: ${carac[0]}
+    Ano: ${carac[1]}
+`)
+
+// Desafio ECMAScript
+//Ex 1
+const dobro = (valor: number):number => valor * 2
+console.log(dobro(10))
+
+// Ex2
+// Parametro Padrão => quando vc seta um valor direto no 
+// parametro na assinatura do método, quando vc chamar ele
+// não necessariamente vc precisara passar o parametro
+const dizerOla = (nome: string = 'Pessoa'): void => {
+    console.log("Ola, " + nome)
+}
+dizerOla()
+dizerOla("Anna")
+
+// Ex 3
+const nums = [-3, 33, 38, 5]
+console.log(Math.min(...nums))
+
+// Ex 4
+const array = [55, 20]
+array.push(...nums)
+console.log(array)
+
+// Ex 5
+const notas = [8.5, 6.3, 9.4]
+const [nota1, nota2, nota3] = notas
+// var notas1 = notas[0]
+// var notas2 = notas[1]
+// var notas3 = notas[2]
+console.log(`
+    Nota 1: ${nota1}
+    Nota 3: ${nota2}
+    Nota 2: ${nota3}
+`)
+
+// Ex 6
+const cientista = {primeiroNome: "Will", experiencia: 12}
+const {primeiroNome: pn, experiencia: e} = cientista
+// var primeiroNome = cientista.primeiroNome
+// var experiencia = cientista.experiencia
+
+console.log(`
+    Primeiro Nome: ${pn},
+    Experiencia: ${e}
+`)
+
+// Callback
+
+function wait3s(callback: (dado: string) => void){
+    setTimeout(() => {
+        callback('3 seconds later...')
+    }, 3000)
+}
+
+wait3s(function(result: string){
+    console.log(result)
+})
+
+function wait3sPromise(){
+    return new Promise((resolve: any) => {
+        setTimeout(() => {
+            resolve('3 seconds later promise...')
+        }, 3000)
+    })
+}
+
+wait3sPromise()
+    .then(dado => console.log(dado));
+
+fetch('https://swapi.dev/api/people/1')
+    .then(res => res.json())
+    .then(character => character.films)
+    .then(films => fetch(films[0]))
+    .then(resFilm => resFilm.json())
+    .then(movie => console.log(movie.title))
+    .catch(res => console.log(res))
