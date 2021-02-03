@@ -38,3 +38,6 @@ commonsjs => é o sistema de módulos do node.js
 arrow function => elas servem para vc ter uma sintaxe reduzida
                     o que melhora o desempenho do seu codigo
                     é legal usar ela para funções pequenas
+
+na promgramação assincrona, CALLBACKs são funções passadas 
+como parametros em outras funções e são executadas após um certo tempo
