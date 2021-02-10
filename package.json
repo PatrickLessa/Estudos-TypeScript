@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/PatrickLessa/Estudos-TypeScript#readme",
   "dependencies": {
-    "live-server": "^1.2.1"
+    "@types/node": "^14.14.25",
+    "live-server": "^1.2.1",
+    "systemjs": "^0.21.6"
   }
 }

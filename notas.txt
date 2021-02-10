@@ -41,3 +41,14 @@ arrow function => elas servem para vc ter uma sintaxe reduzida
 
 na promgramação assincrona, CALLBACKs são funções passadas 
 como parametros em outras funções e são executadas após um certo tempo
+
+namespace => espaços de nome é um espaço reservado para colocar
+            um nome que não va conflitar com outros escopos/blocos de 
+            código
+
+Quando lidamos com modulo em TS, ele utiliza o mesmo sistemas de módulos do
+NodeJS que é o commonsJS, mas não usamos o nodeJS para interpretar os codigos js
+gerados e sim o browser, onde ele não reconhece esse sistema, por isso
+usaremos uma ferramenta chamada SystemJS
+Mas em um cenário real, ele não é usado usamos uma ferramenta mais profissional
+como o webpack
